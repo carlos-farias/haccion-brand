@@ -1,0 +1,87 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\IfFontExistsTF{Noto Sans Mono}{\setmonofont{Noto Sans Mono}}{\setmonofont{Liberation Mono}}
+\usepackage[letterpaper,left=0.7in,right=0.7in,top=0.68in,bottom=0.82in,headheight=0pt,headsep=0pt,footskip=30pt]{geometry}
+\usepackage{xcolor}
+\definecolor{oceano}{HTML}{0284C7}
+\definecolor{celeste}{HTML}{C9EDFF}
+\definecolor{sombra}{HTML}{173042}
+\definecolor{gris}{HTML}{526575}
+\usepackage{graphicx}
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=oceano,linkcolor=oceano,pdftitle={$title$}}
+\usepackage[footsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ifoot{\raisebox{-0.17in}{\includegraphics[width=0.85in]{assets/logo.png}}}
+\ofoot{\scriptsize\color{gris}\pagemark}
+\setkomafont{footsepline}{\color{celeste}}
+\pagestyle{scrheadings}
+\newif\ifcoverpage
+\coverpagetrue
+\AddToHook{shipout/background}{\ifcoverpage\put(0,-792){\includegraphics[width=612pt,height=792pt]{assets/portada-carta.png}}\else\put(365,-675){\includegraphics[width=160pt]{assets/marca-agua.png}}\fi}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{3em}
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\providecommand{\tightlist}{\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\newcommand{\pandocbounded}[1]{#1}
+\newcounter{none}
+\renewcommand{\arraystretch}{1.2}
+\setcounter{secnumdepth}{0}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0pt}{12pt}{5pt}{\color{oceano}\sffamily\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{9pt}{4pt}{\color{sombra}\sffamily\normalsize\bfseries}}
+\makeatother
+$for(header-includes)$
+$header-includes$
+$endfor$
+\begin{document}
+\color{sombra}
+\thispagestyle{empty}
+\vspace*{1.62in}
+$if(cover-label)$
+{\scriptsize\color{oceano}\addfontfeatures{LetterSpace=16}\MakeUppercase{$cover-label$}\par}
+$endif$
+\vspace{0.14in}
+$if(title)$
+{\fontsize{30}{35}\selectfont\bfseries $title$\par}
+$endif$
+\vspace{0.14in}
+$if(subtitle)$
+{\fontsize{17}{22}\selectfont\color{gris}$subtitle$\par}
+$endif$
+\vspace{0.72in}
+\begin{minipage}{0.74\textwidth}
+$if(cliente)$ \textbf{Cliente:}\quad $cliente$\par
+$endif$
+$if(codigo)$ \textbf{Código:}\quad $codigo$\par
+$endif$
+$if(version)$ \textbf{Versión:}\quad $version$\par
+$endif$
+$if(contacto)$ \textbf{Contacto:}\quad $contacto$\par
+$endif$
+$if(responsable)$ \textbf{Responsable:}\quad $responsable$\par
+$endif$
+$if(moneda)$ \textbf{Moneda:}\quad $moneda$\par
+$endif$
+$if(validez)$ \textbf{Validez:}\quad $validez$\par
+$endif$
+$if(date)$ \textbf{Fecha:}\quad $date$\par
+$endif$
+\end{minipage}\par
+\clearpage
+\coverpagefalse
+\setcounter{page}{1}
+\pagestyle{scrheadings}
+$if(toc)$
+\tableofcontents
+\newpage
+$endif$
+$body$
+\end{document}

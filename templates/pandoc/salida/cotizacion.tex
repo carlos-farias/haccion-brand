@@ -1,0 +1,146 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\IfFontExistsTF{Noto Sans Mono}{\setmonofont{Noto Sans Mono}}{\setmonofont{Liberation Mono}}
+\usepackage[letterpaper,left=0.7in,right=0.7in,top=0.68in,bottom=0.82in,headheight=0pt,headsep=0pt,footskip=30pt]{geometry}
+\usepackage{xcolor}
+\definecolor{oceano}{HTML}{0284C7}
+\definecolor{celeste}{HTML}{C9EDFF}
+\definecolor{sombra}{HTML}{173042}
+\definecolor{gris}{HTML}{526575}
+\usepackage{graphicx}
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=oceano,linkcolor=oceano,pdftitle={Cotización
+de servicios}}
+\usepackage[footsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ifoot{\raisebox{-0.17in}{\includegraphics[width=0.85in]{assets/logo.png}}}
+\ofoot{\scriptsize\color{gris}\pagemark}
+\setkomafont{footsepline}{\color{celeste}}
+\pagestyle{scrheadings}
+\newif\ifcoverpage
+\coverpagetrue
+\AddToHook{shipout/background}{\ifcoverpage\put(0,-792){\includegraphics[width=612pt,height=792pt]{assets/portada-carta.png}}\else\put(365,-675){\includegraphics[width=160pt]{assets/marca-agua.png}}\fi}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{3em}
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\providecommand{\tightlist}{\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\newcommand{\pandocbounded}[1]{#1}
+\newcounter{none}
+\renewcommand{\arraystretch}{1.2}
+\setcounter{secnumdepth}{0}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0pt}{12pt}{5pt}{\color{oceano}\sffamily\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{9pt}{4pt}{\color{sombra}\sffamily\normalsize\bfseries}}
+\makeatother
+\begin{document}
+\color{sombra}
+\thispagestyle{empty}
+\vspace*{1.62in}
+{\scriptsize\color{oceano}\addfontfeatures{LetterSpace=16}\MakeUppercase{Cotización}\par}
+\vspace{0.14in}
+{\fontsize{30}{35}\selectfont\bfseries Cotización de servicios\par}
+\vspace{0.14in}
+{\fontsize{17}{22}\selectfont\color{gris}{[}Nombre del proyecto{]}\par}
+\vspace{0.72in}
+\begin{minipage}{0.74\textwidth}
+ \textbf{Cliente:}\quad {[}Razón social del cliente{]}\par
+
+ \textbf{Código:}\quad {[}COT-AAAA-000{]}\par
+
+ \textbf{Versión:}\quad 1.0\par
+
+ \textbf{Contacto:}\quad {[}Nombre y cargo{]}\par
+
+
+ \textbf{Moneda:}\quad {[}CLP, UF o USD{]}\par
+
+ \textbf{Validez:}\quad {[}Plazo de validez{]}\par
+
+ \textbf{Fecha:}\quad {[}Fecha de emisión{]}\par
+
+\end{minipage}\par
+\clearpage
+\coverpagefalse
+\setcounter{page}{1}
+\pagestyle{scrheadings}
+\section{Objetivo y alcance}\label{objetivo-y-alcance}
+
+Proponemos \textbf{{[}servicio o solución{]}} para \textbf{{[}necesidad
+del cliente{]}}. Esta cotización cubre \textbf{{[}alcance incluido{]}} y
+permite obtener \textbf{{[}resultado esperado{]}}.
+
+\section{Entregables}\label{entregables}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Entregable & Descripción & Criterio de aceptación \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}Entregable 1{]} & {[}Contenido y formato{]} & {[}Cómo se
+verificará{]} \\
+{[}Entregable 2{]} & {[}Contenido y formato{]} & {[}Cómo se
+verificará{]} \\
+\end{longtable}
+
+\section{Inversión}\label{inversiuxf3n}
+
+Los importes se expresan en la moneda indicada al inicio. Completar y
+revisar los cálculos antes de emitir; esta plantilla no los calcula
+automáticamente.
+
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule\noalign{}
+Concepto & Cantidad & Precio unitario & Subtotal \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}Servicio 1{]} & {[}Cant.{]} & {[}Importe{]} & {[}Importe{]} \\
+{[}Servicio 2{]} & {[}Cant.{]} & {[}Importe{]} & {[}Importe{]} \\
+\textbf{Neto} & & & \textbf{{[}Importe{]}} \\
+{[}Impuesto aplicable{]} & & & {[}Importe{]} \\
+\textbf{Total} & & & \textbf{{[}Importe{]}} \\
+\end{longtable}
+
+\newpage
+
+\section{Plazos y forma de pago}\label{plazos-y-forma-de-pago}
+
+\textbf{Inicio:} {[}Condición de inicio y fecha estimada{]}.
+
+\textbf{Duración:} {[}Plazo y dependencias del cliente{]}.
+
+\textbf{Pago:} {[}Hitos, porcentajes, vencimientos y medio de pago{]}.
+
+\section{Supuestos y exclusiones}\label{supuestos-y-exclusiones}
+
+\begin{itemize}
+\tightlist
+\item
+  {[}Accesos, información o participación que debe aportar el
+  cliente{]}.
+\item
+  {[}Servicios o costos que no se incluyen{]}.
+\item
+  {[}Cómo se acordarán los cambios de alcance{]}.
+\end{itemize}
+
+\section{Aceptación}\label{aceptaciuxf3n}
+
+Para confirmar la contratación, {[}indicar procedimiento de
+aceptación{]}. La fecha de inicio se coordinará una vez cumplidas las
+condiciones acordadas.
+
+\textbf{Por el cliente:} {[}Nombre y cargo{]}\\
+\textbf{Fecha:} {[}Fecha{]}\\
+\textbf{Por Hacción:} {[}Nombre y cargo{]}
+\end{document}

@@ -1,0 +1,163 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fontspec}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\IfFontExistsTF{Noto Sans Mono}{\setmonofont{Noto Sans Mono}}{\setmonofont{Liberation Mono}}
+\usepackage[letterpaper,left=0.7in,right=0.7in,top=0.68in,bottom=0.82in,headheight=0pt,headsep=0pt,footskip=30pt]{geometry}
+\usepackage{xcolor}
+\definecolor{oceano}{HTML}{0284C7}
+\definecolor{celeste}{HTML}{C9EDFF}
+\definecolor{sombra}{HTML}{173042}
+\definecolor{gris}{HTML}{526575}
+\usepackage{graphicx}
+\usepackage{longtable,booktabs,array,calc}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=oceano,linkcolor=oceano,pdftitle={Recomendación
+de negocio}}
+\usepackage[footsepline]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ifoot{\raisebox{-0.17in}{\includegraphics[width=0.85in]{assets/logo.png}}}
+\ofoot{\scriptsize\color{gris}\pagemark}
+\setkomafont{footsepline}{\color{celeste}}
+\pagestyle{scrheadings}
+\newif\ifcoverpage
+\coverpagetrue
+\AddToHook{shipout/background}{\ifcoverpage\put(0,-792){\includegraphics[width=612pt,height=792pt]{assets/portada-carta.png}}\else\put(365,-675){\includegraphics[width=160pt]{assets/marca-agua.png}}\fi}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{3em}
+\setlength{\LTpre}{6pt}
+\setlength{\LTpost}{6pt}
+\providecommand{\tightlist}{\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\newcommand{\pandocbounded}[1]{#1}
+\newcounter{none}
+\renewcommand{\arraystretch}{1.2}
+\setcounter{secnumdepth}{0}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0pt}{12pt}{5pt}{\color{oceano}\sffamily\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0pt}{9pt}{4pt}{\color{sombra}\sffamily\normalsize\bfseries}}
+\makeatother
+\begin{document}
+\color{sombra}
+\thispagestyle{empty}
+\vspace*{1.62in}
+{\scriptsize\color{oceano}\addfontfeatures{LetterSpace=16}\MakeUppercase{Recomendación
+de negocio}\par}
+\vspace{0.14in}
+{\fontsize{30}{35}\selectfont\bfseries Recomendación de negocio\par}
+\vspace{0.14in}
+{\fontsize{17}{22}\selectfont\color{gris}{[}Iniciativa o
+decisión{]}\par}
+\vspace{0.72in}
+\begin{minipage}{0.74\textwidth}
+ \textbf{Cliente:}\quad {[}Organización{]}\par
+
+ \textbf{Código:}\quad {[}RN-AAAA-000{]}\par
+
+ \textbf{Versión:}\quad 1.0\par
+
+
+ \textbf{Responsable:}\quad {[}Patrocinador o responsable{]}\par
+
+
+
+ \textbf{Fecha:}\quad {[}Fecha{]}\par
+
+\end{minipage}\par
+\clearpage
+\coverpagefalse
+\setcounter{page}{1}
+\pagestyle{scrheadings}
+\section{Decisión recomendada}\label{decisiuxf3n-recomendada}
+
+Recomendamos \textbf{{[}acción{]}} para \textbf{{[}objetivo de
+negocio{]}}. El beneficio esperado es \textbf{{[}beneficio{]}}, sujeto a
+\textbf{{[}supuestos principales{]}}. Solicitamos \textbf{{[}decisión o
+recursos{]}}.
+
+\section{Problema y oportunidad}\label{problema-y-oportunidad}
+
+{[}Explicar la situación actual, quién se ve afectado y qué ocurre si no
+se actúa. Incluir la línea base y su fuente cuando exista.{]}
+
+\section{Opciones}\label{opciones}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Alternativa & Beneficio esperado & Inversión & Limitación principal \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Mantener situación actual & {[}Beneficio{]} & {[}Costo{]} &
+{[}Límite{]} \\
+{[}Opción A{]} & {[}Beneficio{]} & {[}Costo{]} & {[}Límite{]} \\
+{[}Opción B{]} & {[}Beneficio{]} & {[}Costo{]} & {[}Límite{]} \\
+\end{longtable}
+
+\section{Impacto económico}\label{impacto-econuxf3mico}
+
+\textbf{Horizonte y moneda:} {[}Período, moneda y criterio de
+actualización{]}.
+
+\textbf{Costos:} {[}Implementación, operación, cambio y contingencia{]}.
+
+\textbf{Beneficios:} {[}Ahorros, ingresos o reducción de riesgo;
+explicar cómo se estimaron{]}.
+
+\textbf{Supuestos:} {[}Volumen, adopción, costos unitarios y
+sensibilidad{]}.
+
+\section{Plan y responsables}\label{plan-y-responsables}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Etapa & Resultado & Responsable & Plazo \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Validación & {[}Evidencia requerida{]} & {[}Rol{]} & {[}Plazo{]} \\
+Piloto & {[}Resultado{]} & {[}Rol{]} & {[}Plazo{]} \\
+Implementación & {[}Resultado{]} & {[}Rol{]} & {[}Plazo{]} \\
+\end{longtable}
+
+\section{Indicadores de éxito}\label{indicadores-de-uxe9xito}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Indicador & Línea base & Meta & Fuente y frecuencia \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+{[}Indicador{]} & {[}Valor{]} & {[}Valor y fecha{]} & {[}Fuente{]} \\
+{[}Indicador{]} & {[}Valor{]} & {[}Valor y fecha{]} & {[}Fuente{]} \\
+\end{longtable}
+
+\section{Riesgos y condiciones}\label{riesgos-y-condiciones}
+
+\begin{itemize}
+\tightlist
+\item
+  {[}Riesgo principal, mitigación y responsable{]}.
+\item
+  {[}Dependencia que debe resolverse{]}.
+\item
+  {[}Condición para continuar, ajustar o detener{]}.
+\end{itemize}
+
+\section{Próximo paso}\label{pruxf3ximo-paso}
+
+{[}Decisión solicitada, persona responsable y fecha{]}.
+
+\section{Fuentes}\label{fuentes}
+
+\begin{itemize}
+\tightlist
+\item
+  {[}Fuente, fecha, enlace y supuesto relacionado{]}.
+\end{itemize}
+\end{document}
